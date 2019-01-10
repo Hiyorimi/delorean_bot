@@ -21,6 +21,7 @@ module.exports = function (query) {
     var geocodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json?language=en&key=' + key + '&address=' + encodeURIComponent(query);
     return cache.memoize(geocodeUrl, '30d', function () {
       return request.getAsync(geocodeUrl).get('body').then(function (body) {
+        console.log(JSON.parse(body))
         var location = JSON.parse(body).results[0].geometry.location
         return [location.lat, location.lng]
       });
@@ -28,7 +29,7 @@ module.exports = function (query) {
   }).then(function (ll) {
     return cache.memoize('timezone:' + ll.join(','), '30d', function () {
       return promise.fromNode(function (cb) {
-        timezoner.getTimeZone(ll[0], ll[1], cb);
+        timezoner.getTimeZone(ll[0], ll[1], cb, {language: 'en', key: config.googleMapsKey});
       }).get('timeZoneId');
     });
   });
