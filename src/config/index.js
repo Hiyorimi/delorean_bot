@@ -1,11 +1,12 @@
-var _ = require('lodash');
+require('dotenv').load()
+var _ = require('lodash')
 var path = require('path')
 module.exports = {
 
   bot: {
-    key: '<API_KEY>',
+    key: process.env.TELEGRAM_BOT_KEY || '<API_KEY>',
     botanio: {
-      key: '<BOTANIO_KEY>'
+      key: process.env.BOTANIO_KEY || '<BOTANIO_KEY>'
     },
     polling: {
       interval: 100,
@@ -24,7 +25,7 @@ module.exports = {
     locale: 'ru',
     timezone: 'Europe/Moscow'
   },
-  googleMapsKey: '<GOOGLE_MAPS_KEY>',
+  googleMapsKey: process.env.GOOGLE_MAPS_API_KEY || '<GOOGLE_MAPS_KEY>',
 
 };
 

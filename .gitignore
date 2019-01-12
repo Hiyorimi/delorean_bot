@@ -2,3 +2,5 @@
 /src/node_modules/config/local.*
 /logs/*
 /*.log
+package-lock.json
+.env
