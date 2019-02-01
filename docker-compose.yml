@@ -1,13 +1,16 @@
-version: "2"
+version: "3"
+ 
 services:
-  node:
-    image: "node:8"
-    user: "node"
-    working_dir: /home/node/app
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - ./:/home/node/app
-    expose:
-      - "8081"
-    command: "pm2 start process.json"
+  bot:
+    build:
+      context: .
+      args:
+        - src=./src
+    command: bash -c "pm2-docker start process.json"
+    restart: on-failure
+    env_file:
+      - ./docker.env
+  redis:
+    image: "redis"
+    ports:
+      - "6379:6379"
