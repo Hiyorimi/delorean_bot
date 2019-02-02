@@ -25,8 +25,8 @@ main:
   remove: 'Чтобы удалить уведомление, введите его номер.'
   nolist: 'У вас пока нет уведомлений.'
   rate: |
-    <%=user.first_name%>, если вам понравился наш бот, пожалуйста, поставьте ему :star::star::star::star::star: здесь:
-    https://telegram.me/storebot?start=delorean_bot
+    <%=user.first_name%>, если вам понравился наш бот, пожалуйста, расскажите о нем своим друзьям или дайте им эту ссылку:
+    https://t-do.ru/delorean2_bot
   help: |
     Основные команды:
     /start - начать работу

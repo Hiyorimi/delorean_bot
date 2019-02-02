@@ -25,8 +25,8 @@ main:
   remove: 'Enter notification number to delete it.'
   nolist: "You don't have any notifications yet."
   rate: |
-    <%=user.first_name%>, if you like our bot, please, rate it with :star::star::star::star::star: here:
-    https://telegram.me/storebot?start=delorean_bot
+    <%=user.first_name%>, if you like our bot, simply tell your friends about it and provide this link:
+    https://t.me/delorean2_bot
   help: |
     General commands:
     /start - start work
