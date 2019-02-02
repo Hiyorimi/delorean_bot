@@ -38,3 +38,8 @@ pm2 start process.json
 ```sh
 docker-compose up --build
 ```
+
+To persist docker after reboot add this entry into crontab:
+```sh
+@reboot sleep 60 && /usr/local/bin/docker-compose -f /path/to/folder/delorean_bot/docker-compose.yml up -d
+```
